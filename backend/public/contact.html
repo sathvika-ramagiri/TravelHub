@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="travel.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Travel<span>Hub</span></div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="forums.html">Discussion Forums</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search destinations, deals, or topics...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="auth-buttons">
+                    <button class="login-btn">Log In</button>
+                    <button class="btn">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Banner Section -->
+    <section class="banner">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p>Have questions or feedback? We'd love to hear from you. Our team is here to help with any inquiries you might have.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section" style="background-color: white; padding: 60px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <!-- Contact Form -->
+                <div style="background-color: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <h2 style="text-align: left; margin-bottom: 20px;">Send us a Message</h2>
+                    <form>
+                        <div style="margin-bottom: 20px;">
+                            <label for="name" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name</label>
+                            <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="email" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Email</label>
+                            <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="subject" style="display: block; margin-bottom: 5px; font-weight: 500;">Subject</label>
+                            <select id="subject" name="subject" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Customer Support</option>
+                                <option value="partnerships">Business Partnerships</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label for="message" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Message</label>
+                            <textarea id="message" name="message" rows="6" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                        </div>
+                        <button type="submit" class="primary-btn" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Contact Information -->
+                <div>
+                    <h2 style="text-align: left; margin-bottom: 20px;">Contact Information</h2>
+                    <div style="margin-bottom: 30px;">
+                        <div style="margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 10px; color: #0077cc;"><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                            <p>123 Travel Street<br>Adventure City, TC 12345<br>United States</p>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 10px; color: #0077cc;"><i class="fas fa-phone"></i> Phone Numbers</h3>
+                            <p>Customer Support: +1 (555) 123-4567<br>Business Inquiries: +1 (555) 765-4321</p>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 10px; color: #0077cc;"><i class="fas fa-envelope"></i> Email Addresses</h3>
+                            <p>General Inquiries: info@travelhub.com<br>Support: support@travelhub.com<br>Business: partnerships@travelhub.com</p>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 10px; color: #0077cc;"><i class="fas fa-clock"></i> Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM EST<br>Saturday: 10:00 AM - 4:00 PM EST<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 15px; color: #0077cc;">Connect With Us</h3>
+                        <div class="social-links" style="margin-bottom: 30px;">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <p>Follow us on social media for travel tips, destination highlights, and exclusive deals!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="background-color: #f5f7fa;">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="background-color: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <h3 style="color: #0077cc; margin-bottom: 10px;">How do I book a trip through TravelHub?</h3>
+                    <p>You can book a trip by browsing our deals section, selecting your desired package, and following the booking process. You'll need to create an account if you don't already have one.</p>
+                </div>
+                <div style="background-color: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <h3 style="color: #0077cc; margin-bottom: 10px;">What is your cancellation policy?</h3>
+                    <p>Our cancellation policy varies depending on the type of booking and the time of cancellation. Generally, cancellations made more than 30 days in advance receive a full refund. Please check the specific terms for your booking.</p>
+                </div>
+                <div style="background-color: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <h3 style="color: #0077cc; margin-bottom: 10px;">How can businesses partner with TravelHub?</h3>
+                    <p>If you're a business interested in partnering with us, please contact our partnerships team at partnerships@travelhub.com or fill out the contact form on this page selecting "Business Partnerships" as the subject.</p>
+                </div>
+                <div style="background-color: white; padding: 20px; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+                    <h3 style="color: #0077cc; margin-bottom: 10px;">How long does it take to get a response from customer support?</h3>
+                    <p>We typically respond to all inquiries within 24-48 hours during business days. For urgent matters, we recommend calling our customer support line for immediate assistance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section (Placeholder) -->
+    <section style="padding: 0; height: 400px; background-color: #e6f2ff; display: flex; justify-content: center; align-items: center;">
+        <div style="text-align: center;">
+            <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #0077cc; margin-bottom: 15px;"></i>
+            <h3>Interactive Map</h3>
+            <p>Our office location would be displayed here on an interactive map.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Center</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Travel Street, TC 12345</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> info@travelhub.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TravelHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer><script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel - Discussions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="travel.png" type="image/png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Forum-specific styles */
+        .forum-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .forum-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .forum-title {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .create-topic {
+            background-color: #ff6b00;
+        }
+
+        .create-topic:hover {
+            background-color: #e05f00;
+        }
+
+        .forum-nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .forum-nav-item {
+            padding: 8px 15px;
+            background-color: #f5f7fa;
+            border-radius: 20px;
+            color: #333;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .forum-nav-item.active {
+            background-color: #0077cc;
+            color: white;
+        }
+
+        .forum-nav-item:hover:not(.active) {
+            background-color: #e6f2ff;
+        }
+
+        .forum-search {
+            margin-bottom: 30px;
+        }
+
+        .forum-search input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .topics-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .topic-item {
+            display: flex;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .topic-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .topic-color-tag {
+            width: 8px;
+            background-color: #0077cc;
+        }
+
+        .topic-color-tag.question {
+            background-color: #ffa500;
+        }
+
+        .topic-color-tag.experience {
+            background-color: #4caf50;
+        }
+
+        .topic-color-tag.advice {
+            background-color: #9c27b0;
+        }
+        
+        .topic-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .topic-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .topic-category {
+            background-color: #e6f2ff;
+            color: #0077cc;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .topic-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .topic-title a {
+            color: #333;
+        }
+
+        .topic-title a:hover {
+            color: #0077cc;
+        }
+
+        .topic-meta {
+            display: flex;
+            font-size: 0.85rem;
+            color: #777;
+            gap: 15px;
+        }
+
+        .topic-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topic-meta i {
+            font-size: 0.9rem;
+        }
+
+        .topic-stats {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f5f7fa;
+            border-left: 1px solid #eee;
+            min-width: 180px;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .last-activity {
+            font-size: 0.85rem;
+            color: #777;
+            text-align: center;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 5px;
+        }
+
+        .pagination a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 4px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+
+        .pagination a:hover, .pagination a.active {
+            background-color: #0077cc;
+            color: white;
+            text-decoration: none;
+        }
+
+        .forum-sidebar {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-topics, .active-users {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .trending-topic {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trending-topic-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #e6f2ff;
+            border-radius: 50%;
+            color: #0077cc;
+        }
+
+        .trending-topic-title {
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .user-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #e6f2ff;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0077cc;
+            font-weight: bold;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .user-topics {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        .forum-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .forum-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .topic-stats {
+                min-width: 120px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topic-item {
+                flex-direction: column;
+            }
+            
+            .topic-color-tag {
+                width: 100%;
+                height: 5px;
+            }
+            
+            .topic-stats {
+                border-left: none;
+                border-top: 1px solid #eee;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            
+            .stat {
+                margin-bottom: 0;
+                margin-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Travel<span>Hub</span></div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+            
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="#" class="active">Community</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search the site...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <button class="login-btn">Log In</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="container">
+            <div class="section-header">
+                <h2>Travel Community Forum</h2>
+                <p class="text-center">Connect with fellow travelers, share experiences, and get advice from our community.</p>
+            </div>
+
+            <div class="forum-grid">
+                <div class="forum-main">
+                    <div class="forum-container">
+                        <div class="forum-header">
+                            <h3 class="forum-title">Discussions</h3>
+                            <button class="create-topic btn">
+                                <i class="fas fa-plus"></i> New Topic
+                            </button>
+                        </div>
+
+                        <div class="forum-nav">
+                            <div class="forum-nav-item active">All Topics</div>
+                            <div class="forum-nav-item">Questions</div>
+                            <div class="forum-nav-item">Experiences</div>
+                            <div class="forum-nav-item">Advice</div>
+                            <div class="forum-nav-item">Destinations</div>
+                            <div class="forum-nav-item">Travel Tips</div>
+                        </div>
+
+                        <div class="forum-search">
+                            <input type="text" placeholder="Search forum topics...">
+                        </div>
+
+                        <div class="topics-list">
+                            <!-- Topic 1 -->
+                            <div class="topic-item">
+                                <div class="topic-color-tag question"></div>
+                                <div class="topic-content">
+                                    <div class="topic-header">
+                                        <span class="topic-category">Question</span>
+                                    </div>
+                                    <h3 class="topic-title">
+                                        <a href="#">Best time to visit Bali for fewer crowds?</a>
+                                    </h3>
+                                    <div class="topic-meta">
+                                        <span><i class="fas fa-user"></i> JaneDoe</span>
+                                        <span><i class="fas fa-clock"></i> 2 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">24</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">142</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="last-activity">
+                                        Last reply: 3 hours ago
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Topic 2 -->
+                            <div class="topic-item">
+                                <div class="topic-color-tag experience"></div>
+                                <div class="topic-content">
+                                    <div class="topic-header">
+                                        <span class="topic-category">Experience</span>
+                                    </div>
+                                    <h3 class="topic-title">
+                                        <a href="#">My amazing week in Barcelona - Full itinerary and tips</a>
+                                    </h3>
+                                    <div class="topic-meta">
+                                        <span><i class="fas fa-user"></i> TravelBug</span>
+                                        <span><i class="fas fa-clock"></i> 1 week ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">36</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">283</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="last-activity">
+                                        Last reply: 1 day ago
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Topic 3 -->
+                            <div class="topic-item">
+                                <div class="topic-color-tag advice"></div>
+                                <div class="topic-content">
+                                    <div class="topic-header">
+                                        <span class="topic-category">Advice</span>
+                                    </div>
+                                    <h3 class="topic-title">
+                                        <a href="#">First time traveling to Japan - Need help planning</a>
+                                    </h3>
+                                    <div class="topic-meta">
+                                        <span><i class="fas fa-user"></i> NewExplorer</span>
+                                        <span><i class="fas fa-clock"></i> 3 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">42</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">197</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="last-activity">
+                                        Last reply: 5 hours ago
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Topic 4 -->
+                            <div class="topic-item">
+                                <div class="topic-color-tag"></div>
+                                <div class="topic-content">
+                                    <div class="topic-header">
+                                        <span class="topic-category">Destination</span>
+                                    </div>
+                                    <h3 class="topic-title">
+                                        <a href="#">Hidden gems in Portugal that tourists usually miss</a>
+                                    </h3>
+                                    <div class="topic-meta">
+                                        <span><i class="fas fa-user"></i> LocalGuide</span>
+                                        <span><i class="fas fa-clock"></i> 5 days ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">18</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">165</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="last-activity">
+                                        Last reply: 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Topic 5 -->
+                            <div class="topic-item">
+                                <div class="topic-color-tag question"></div>
+                                <div class="topic-content">
+                                    <div class="topic-header">
+                                        <span class="topic-category">Question</span>
+                                    </div>
+                                    <h3 class="topic-title">
+                                        <a href="#">Recommendations for budget-friendly hotels in Paris?</a>
+                                    </h3>
+                                    <div class="topic-meta">
+                                        <span><i class="fas fa-user"></i> BudgetTraveler</span>
+                                        <span><i class="fas fa-clock"></i> 1 day ago</span>
+                                    </div>
+                                </div>
+                                <div class="topic-stats">
+                                    <div class="stat">
+                                        <span class="stat-value">29</span>
+                                        <span class="stat-label">Replies</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-value">176</span>
+                                        <span class="stat-label">Views</span>
+                                    </div>
+                                    <div class="last-activity">
+                                        Last reply: 6 hours ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <a href="#"><i class="fas fa-angle-left"></i></a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <a href="#"><i class="fas fa-angle-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="forum-sidebar">
+                    <!-- Recent/Trending Topics -->
+                    <div class="sidebar-section">
+                        <h3>Trending Topics</h3>
+                        <div class="trending-topics">
+                            <div class="trending-topic">
+                                <div class="trending-topic-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="trending-topic-title">
+                                    <a href="#">Safety tips for solo female travelers</a>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="trending-topic-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="trending-topic-title">
+                                    <a href="#">Must-visit destinations in 2025</a>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="trending-topic-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="trending-topic-title">
+                                    <a href="#">Best travel credit cards for points</a>
+                                </div>
+                            </div>
+                            <div class="trending-topic">
+                                <div class="trending-topic-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="trending-topic-title">
+                                    <a href="#">How to pack for a 2-week trip in carry-on only</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Active Users -->
+                    <div class="sidebar-section">
+                        <h3>Active Community Members</h3>
+                        <div class="active-users">
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">TravelBug</div>
+                                    <div class="user-topics">42 topics</div>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">WorldExplorer</div>
+                                    <div class="user-topics">38 topics</div>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">LocalGuide</div>
+                                    <div class="user-topics">29 topics</div>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <div class="user-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="user-info">
+                                    <div class="user-name">JaneDoe</div>
+                                    <div class="user-topics">24 topics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forum Stats -->
+                    <div class="sidebar-section">
+                        <h3>Forum Statistics</h3>
+                        <div class="forum-stats">
+                            <p><i class="fas fa-users"></i> <strong>1,245</strong> members</p>
+                            <p><i class="fas fa-comments"></i> <strong>3,872</strong> topics</p>
+                            <p><i class="fas fa-reply"></i> <strong>16,543</strong> replies</p>
+                            <p><i class="fas fa-user-plus"></i> <strong>12</strong> new members today</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Discover</h3>
+                    <ul>
+                        <li><a href="#">Popular Destinations</a></li>
+                        <li><a href="#">Travel Deals</a></li>
+                        <li><a href="#">Local Businesses</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Information</a></li>
+                        <li><a href="#">Cancellation Options</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p><i class="fas fa-envelope"></i> info@travelhub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 TravelHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
