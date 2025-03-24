@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deals - TravelHub</title>
+    <link rel="icon" href="travel.png" type="image/png">
+    <link  rel="stylesheet" href="deal.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                Travel<span>Hub</span> 
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html" class="active">Deals</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="forums.html">Discussion Forums</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search deals by destination, type or agent...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="deals-hero">
+            <div class="container">
+                <div class="deals-hero-content">
+                    <h1>Exclusive Travel Deals</h1>
+                    <p>Browse and connect with the latest offers from travel agents around the world</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deals Filters Section -->
+        <section class="deals-filters">
+            <div class="container">
+                <div class="deals-filter-container">
+                    <div class="filter-group">
+                        <label>Deal Type</label>
+                        <select id="deal-type">
+                            <option value="all">All Types</option>
+                            <option value="flight">Flights</option>
+                            <option value="hotel">Hotels</option>
+                            <option value="package">Packages</option>
+                            <option value="cruise">Cruises</option>
+                            <option value="tour">Tours</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Destination</label>
+                        <select id="destination">
+                            <option value="all">All Destinations</option>
+                            <option value="europe">Europe</option>
+                            <option value="asia">Asia</option>
+                            <option value="africa">Africa</option>
+                            <option value="north-america">North America</option>
+                            <option value="south-america">South America</option>
+                            <option value="oceania">Australia & Oceania</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Price Range</label>
+                        <select id="price-range">
+                            <option value="all">All Prices</option>
+                            <option value="budget">Budget (Under $500)</option>
+                            <option value="mid">Mid-range ($500-$1500)</option>
+                            <option value="luxury">Luxury ($1500+)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label>Deal Visibility</label>
+                        <select id="visibility">
+                            <option value="all">All Deals</option>
+                            <option value="public">Public Deals</option>
+                            <option value="private">Agent-only Deals</option>
+                        </select>
+                    </div>
+                    
+                    <button class="apply-filters">Apply Filters</button>
+                </div>
+                
+                <div class="deals-view-toggle">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+                
+                <div class="deals-sort">
+                    <label>Sort by:</label>
+                    <select id="sort-deals">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Deals -->
+        <section class="featured-deals">
+            <div class="container">
+                <h2>Featured Deals</h2>
+                <div class="featured-deals-slider">
+                    <div class="featured-deal">
+                        <span class="featured-badge">Featured</span>
+                        <div class="featured-deal-image" style="background-image: url('https://source.unsplash.com/600x400/?maldives,resort');"></div>
+                        <div class="featured-deal-content">
+                            <span class="deal-category luxury">Luxury Package</span>
+                            <h3>Maldives Overwater Villa Experience</h3>
+                            <p class="deal-description">7 nights in an overwater villa with all-inclusive meals and transfers</p>
+                            <div class="deal-highlights">
+                                <span><i class="fas fa-calendar-alt"></i> Valid until Dec 15, 2025</span>
+                                <span><i class="fas fa-user-tag"></i> By LuxuryEscapes</span>
+                            </div>
+                            <div class="deal-pricing">
+                                <div class="price-info">
+                                    <span class="original-price">$3,999</span>
+                                    <span class="current-price">$2,699</span>
+                                    <span class="savings">Save 32%</span>
+                                </div>
+                                <button class="view-deal">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Deals Section -->
+        <section class="all-deals">
+            <div class="container">
+                <h2>Browse All Deals</h2>
+                <p class="deals-count">Showing 12 of 143 deals</p>
+                
+                <div class="deals-grid">
+                    <!-- Deal Card 1 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?bali,beach');"></div>
+                        <div class="deal-badge agent-only">Agent Only</div>
+                        <div class="deal-details">
+                            <span class="deal-category">Flight + Hotel</span>
+                            <h3>Bali Paradise Package</h3>
+                            <p>7 days in luxury resort with flights included. Special agent rates available.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 7 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Bali, Indonesia</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>AsiaTravel Pro</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$899</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card 2 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?cruise,mediterranean');"></div>
+                        <div class="deal-badge">Public</div>
+                        <div class="deal-details">
+                            <span class="deal-category">Cruise</span>
+                            <h3>Mediterranean Cruise Special</h3>
+                            <p>10-day luxury cruise with exclusive agent rates. Ports include Barcelona, Rome, and Athens.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 10 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Mediterranean</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>CruiseConnect</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$1,299</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card 3 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?japan,cherry-blossom');"></div>
+                        <div class="deal-badge">Public</div>
+                        <div class="deal-details">
+                            <span class="deal-category">Tour Package</span>
+                            <h3>Japan Cherry Blossom Tour</h3>
+                            <p>12-day guided tour during sakura season. Includes Tokyo, Kyoto, and Osaka.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 12 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Japan</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>AsianWonders</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$2,499</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card 4 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?paris,eiffel');"></div>
+                        <div class="deal-badge agent-only">Agent Only</div>
+                        <div class="deal-details">
+                            <span class="deal-category">City Break</span>
+                            <h3>Paris Weekend Getaway</h3>
+                            <p>3 nights in a boutique hotel with Seine river cruise and skip-the-line Eiffel Tower tickets.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 3 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Paris, France</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>EuropeSpecialist</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$699</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card 5 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?safari,africa');"></div>
+                        <div class="deal-badge">Public</div>
+                        <div class="deal-details">
+                            <span class="deal-category">Safari</span>
+                            <h3>African Safari Adventure</h3>
+                            <p>8-day safari in Kenya and Tanzania with luxury lodges and game drives in top national parks.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 8 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> Kenya & Tanzania</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>AfricaExperts</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$3,199</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card 6 -->
+                    <div class="deal-card">
+                        <div class="deal-image" style="background-image: url('https://source.unsplash.com/300x200/?new-york,skyline');"></div>
+                        <div class="deal-badge">Public</div>
+                        <div class="deal-details">
+                            <span class="deal-category">Flight + Hotel</span>
+                            <h3>New York City Explorer</h3>
+                            <p>5 nights in Manhattan with return flights, Broadway show tickets and city pass included.</p>
+                            <div class="deal-meta">
+                                <div class="deal-stats">
+                                    <span><i class="fas fa-calendar"></i> 5 days</span>
+                                    <span><i class="fas fa-map-marker-alt"></i> New York, USA</span>
+                                </div>
+                                <div class="deal-agent">
+                                    <img src="https://source.unsplash.com/30x30/?profile" alt="Agent" class="agent-avatar">
+                                    <span>USATravelPro</span>
+                                </div>
+                            </div>
+                            <div class="deal-price-section">
+                                <div class="price-info">
+                                    <span class="price-label">From</span>
+                                    <span class="price-value">$1,599</span>
+                                </div>
+                                <button class="view-deal-btn">View Deal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <button class="page-btn">4</button>
+                    <span class="page-dots">...</span>
+                    <button class="page-btn">12</button>
+                    <button class="page-nav next">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Post a Deal CTA -->
+        <section class="post-deal-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2>Have a Deal to Share?</h2>
+                        <p>As a registered travel agent, you can post your exclusive deals and reach thousands of other professionals</p>
+                    </div>
+                    <div class="cta-buttons">
+                        <button class="primary-btn">Post a Deal</button>
+                        <button class="secondary-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <p><i class="fas fa-envelope"></i> support@travelhub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><a href="helpdesk.html">Help Desk</a></p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TravelHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deal Detail Modal (Hidden by default) -->
+    <div id="deal-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="deal-modal-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="deals.js"></script>
+</body>
+</html>

@@ -1,0 +1,548 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #0077cc;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, .btn {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #005fa3;
+}
+
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+/* Header Styles */
+header {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0077cc;
+}
+
+.logo span {
+    color: #ff6b00;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #333;
+    font-weight: 500;
+}
+
+.search-bar {
+    display: flex;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    padding: 8px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+}
+
+.search-bar button {
+    border-radius: 0 4px 4px 0;
+    padding: 8px 12px;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn {
+    background-color: transparent;
+    color: #0077cc;
+    border: 1px solid #0077cc;
+}
+
+.login-btn:hover {
+    background-color: #f0f7ff;
+}
+
+/* Banner Section */
+.banner {
+    background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('./images/destination-5.jpg') no-repeat center center/cover;
+    padding: 120px 0;
+    text-align: center;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.primary-btn {
+    background-color: #ff6b00;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+.primary-btn:hover {
+    background-color: #e05f00;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Intro Section */
+.intro {
+    text-align: center;
+    background-color: white;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #0077cc;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+/* Deals Section */
+.trending-deals {
+    background-color: #f5f7fa;
+}
+
+.deals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.deal-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.deal-card:hover {
+    transform: translateY(-5px);
+}
+
+.deal-image {
+    height: 180px;
+    background: url('https://source.unsplash.com/300x180/?travel') no-repeat center center/cover;
+}
+
+.deal-details {
+    padding: 20px;
+}
+
+.deal-category {
+    display: inline-block;
+    background-color: #e6f2ff;
+    color: #0077cc;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.deal-details h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.deal-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.deal-price {
+    font-weight: 700;
+    color: #ff6b00;
+}
+
+.view-deal-btn {
+    width: 100%;
+    padding: 8px;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.view-all a {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Supporting Businesses Section */
+.supporting-businesses {
+    background-color: white;
+}
+
+.business-categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.category-btn {
+    background-color: #f5f7fa;
+    color: #333;
+    border-radius: 20px;
+    padding: 8px 15px;
+}
+
+.category-btn.active, .category-btn:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+.businesses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.business-card {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    background-color: #f9f9f9;
+}
+
+.business-card:hover {
+    transform: translateY(-5px);
+}
+
+.business-logo {
+    width: 80px;
+    height: 80px;
+    background-color: #e6f2ff;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.business-card h3 {
+    margin-bottom: 5px;
+}
+
+.business-category {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.business-description {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.business-rating {
+    margin-bottom: 20px;
+    color: #ffa500;
+}
+
+.contact-business-btn {
+    width: 100%;
+}
+
+/* Forums Preview Section */
+.forums-preview {
+    background-color: #f5f7fa;
+}
+
+.forum-topics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.topic-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.topic-card h3 {
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+.topic-card p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.topic-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.join-discussion {
+    display: inline-block;
+    background-color: #f0f7ff;
+    color: #0077cc;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.join-discussion:hover {
+    background-color: #e0f0ff;
+    text-decoration: none;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background-color: #0077cc;
+    text-decoration: none;
+}
+
+.footer-column p {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.footer-column i {
+    margin-right: 10px;
+    color: #0077cc;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    nav ul {
+        display: none;
+    }
+    
+    .header-content {
+        flex-wrap: wrap;
+    }
+    
+    .search-bar {
+        order: 3;
+        width: 100%;
+        margin: 15px 0 0;
+    }
+    
+    .search-bar input {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2.2rem;
+    }
+    
+    .banner p {
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .auth-buttons {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .features-grid, .deals-grid, .businesses-grid, .forum-topics {
+        grid-template-columns: 1fr;
+    }
+}

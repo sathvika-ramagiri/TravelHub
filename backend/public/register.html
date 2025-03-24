@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Hub Portal - Registration</title>
+    <link rel="icon" href="travel.png" type="image/png">
+
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --light-bg: #f8fafc;
+            --dark-text: #0f172a;
+            --light-text: #f8fafc;
+            --danger: #ef4444;
+            --success: #22c55e;
+            --border-color: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .card-subtitle {
+            font-size: 1rem;
+            color: var(--secondary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.25rem;
+            font-size: 1rem;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--light-text);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .mt-4 {
+            margin-top: 1rem;
+        }
+        
+        .error-message {
+            color: var(--danger);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .success-message {
+            color: var(--success);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        
+        .tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .tab.active {
+            border-bottom: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .helper-text {
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            margin-top: 0.25rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .checkbox-group input {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">Travel Hub Portal</div>
+            <a href="login.html" class="btn btn-secondary">Login</a>
+        </header>
+        
+        <div class="card">
+            <h1 class="card-title">Create Your Account</h1>
+            <p class="card-subtitle">Join our network of travel enthusiasts</p>
+            
+            <div class="tab-container">
+                <div class="tab active" id="individual-tab">Individual</div>
+                <div class="tab" id="agent-tab">Travel Hub</div>
+                <div class="tab" id="business-tab">Supporting Business</div>
+            </div>
+            
+            <!-- Individual Registration Form -->
+            <div class="tab-content active" id="individual-content">
+                <form id="individual-registration-form">
+                    <div class="form-group">
+                        <label for="individual-email">Email Address *</label>
+                        <input type="email" id="individual-email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="individual-phone">Contact Number *</label>
+                        <input type="tel" id="individual-phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="individual-password">Password *</label>
+                            <input type="password" id="individual-password" name="password" required>
+                            <p class="helper-text">At least 8 characters with uppercase, lowercase, number, and special character</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="individual-confirm-password">Confirm Password *</label>
+                            <input type="password" id="individual-confirm-password" name="confirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="individual-terms" name="terms" required>
+                        <label for="individual-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Create Individual Account</button>
+                </form>
+            </div>
+            
+            <!-- Travel Hub Registration Form -->
+            <div class="tab-content" id="agent-content">
+                <form id="agent-registration-form">
+                    <div class="form-group">
+                        <label for="agent-business-name">Business Name *</label>
+                        <input type="text" id="agent-business-name" name="businessName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agent-email">Email Address *</label>
+                            <input type="email" id="agent-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="agent-phone">Phone Number *</label>
+                            <input type="tel" id="agent-phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="agent-address">Business Address *</label>
+                        <input type="text" id="agent-address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agent-city">City *</label>
+                            <input type="text" id="agent-city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="agent-state">State/Province *</label>
+                            <input type="text" id="agent-state" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="agent-zip">Postal Code *</label>
+                            <input type="text" id="agent-zip" name="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="agent-license">License/Registration Number *</label>
+                        <input type="text" id="agent-license" name="licenseNumber" required>
+                        <p class="helper-text">Your travel agency license or registration number</p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="agent-password">Password *</label>
+                            <input type="password" id="agent-password" name="password" required>
+                            <p class="helper-text">At least 8 characters with uppercase, lowercase, number, and special character</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="agent-confirm-password">Confirm Password *</label>
+                            <input type="password" id="agent-confirm-password" name="confirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="agent-terms" name="terms" required>
+                        <label for="agent-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Create Travel Hub Account</button>
+                </form>
+            </div>
+            
+            <!-- Supporting Business Registration Form -->
+            <div class="tab-content" id="business-content">
+                <form id="business-registration-form">
+                    <div class="form-group">
+                        <label for="business-name">Company Name *</label>
+                        <input type="text" id="business-name" name="companyName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-email">Email Address *</label>
+                            <input type="email" id="business-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-phone">Phone Number *</label>
+                            <input type="tel" id="business-phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-address">Business Address *</label>
+                        <input type="text" id="business-address" name="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-city">City *</label>
+                            <input type="text" id="business-city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-state">State/Province *</label>
+                            <input type="text" id="business-state" name="state" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-zip">Postal Code *</label>
+                            <input type="text" id="business-zip" name="zip" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-services">Services Offered *</label>
+                        <select id="business-services" name="services" multiple required>
+                            <option value="transportation">Transportation</option>
+                            <option value="accommodation">Accommodation</option>
+                            <option value="activities">Activities & Excursions</option>
+                            <option value="insurance">Travel Insurance</option>
+                            <option value="consulting">Travel Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <p class="helper-text">Hold Ctrl/Cmd to select multiple options</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-description">Business Description *</label>
+                        <textarea id="business-description" name="description" rows="4" required></textarea>
+                        <p class="helper-text">Tell Travel Hubs about your business and services</p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="business-password">Password *</label>
+                            <input type="password" id="business-password" name="password" required>
+                            <p class="helper-text">At least 8 characters with uppercase, lowercase, number, and special character</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="business-confirm-password">Confirm Password *</label>
+                            <input type="password" id="business-confirm-password" name="confirmPassword" required>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="business-terms" name="terms" required>
+                        <label for="business-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Create Business Account</button>
+                </form>
+            </div>
+            
+            <p class="text-center mt-4">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const individualTab = document.getElementById('individual-tab');
+        const agentTab = document.getElementById('agent-tab');
+        const businessTab = document.getElementById('business-tab');
+        const individualContent = document.getElementById('individual-content');
+        const agentContent = document.getElementById('agent-content');
+        const businessContent = document.getElementById('business-content');
+        
+        individualTab.addEventListener('click', () => {
+            individualTab.classList.add('active');
+            agentTab.classList.remove('active');
+            businessTab.classList.remove('active');
+            individualContent.classList.add('active');
+            agentContent.classList.remove('active');
+            businessContent.classList.remove('active');
+        });
+        
+        agentTab.addEventListener('click', () => {
+            individualTab.classList.remove('active');
+            agentTab.classList.add('active');
+            businessTab.classList.remove('active');
+            individualContent.classList.remove('active');
+            agentContent.classList.add('active');
+            businessContent.classList.remove('active');
+        });
+        
+        businessTab.addEventListener('click', () => {
+            individualTab.classList.remove('active');
+            businessTab.classList.add('active');
+            agentTab.classList.remove('active');
+            individualContent.classList.remove('active');
+            businessContent.classList.add('active');
+            agentContent.classList.remove('active');
+        });
+        
+        // Form submission for Individual
+        const individualForm = document.getElementById('individual-registration-form');
+        individualForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Password validation
+            const password = document.getElementById('individual-password').value;
+            const confirmPassword = document.getElementById('individual-confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Collect form data
+            const formData = new FormData(individualForm);
+            const individualData = Object.fromEntries(formData.entries());
+            
+            try {
+                // API call to register individual
+                const response = await fetch('/api/auth/register/individual', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(individualData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Registration successful! Please check your email to verify your account.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Registration failed: ${data.message || 'Unknown error'}`);
+                }
+            } catch (error) {
+                alert('Registration failed. Please try again later.');
+                console.error('Registration error:', error);
+            }
+        });
+        
+        // Form submission for Travel Hub
+        const agentForm = document.getElementById('agent-registration-form');
+        agentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Password validation
+            const password = document.getElementById('agent-password').value;
+            const confirmPassword = document.getElementById('agent-confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Collect form data
+            const formData = new FormData(agentForm);
+            const agentData = Object.fromEntries(formData.entries());
+            
+            try {
+                // API call to register agent
+                const response = await fetch('/api/auth/register/agent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(agentData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Registration successful! Please check your email to verify your account.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Registration failed: ${data.message || 'Unknown error'}`);
+                }
+            } catch (error) {
+                alert('Registration failed. Please try again later.');
+                console.error('Registration error:', error);
+            }
+        });
+        
+        // Form submission for Supporting Business
+        const businessForm = document.getElementById('business-registration-form');
+        businessForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Password validation
+            const password = document.getElementById('business-password').value;
+            const confirmPassword = document.getElementById('business-confirm-password').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Collect form data
+            const formData = new FormData(businessForm);
+            const businessData = Object.fromEntries(formData.entries());
+            
+            // Handle multi-select values
+            businessData.services = Array.from(
+                document.getElementById('business-services').selectedOptions
+            ).map(option => option.value);
+            
+            try {
+                // API call to register business
+                const response = await fetch('/api/auth/register/business', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(businessData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('Registration submitted successfully! Your account will be reviewed by our administrators. You will receive an email once your account is approved.');
+                    window.location.href = 'login.html';
+                } else {
+                    alert(`Registration failed: ${data.message || 'Unknown error'}`);
+                }
+            } catch (error) {
+                alert('Registration failed. Please try again later.');
+                console.error('Registration error:', error);
+            }
+        });
+    </script>
+</body>
+</html>

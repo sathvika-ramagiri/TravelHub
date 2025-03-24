@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelHub</title>
+    <link rel="icon" href="travel.png" type="image/png">
+
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                
+                Travel<span>Hub</span> 
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="forums.html">Discussion Forums</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search deals, agents, services...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+        <!-- Banner Section -->
+        <section  class="banner">
+            <div class="container">
+                <div class="banner-content">
+                    <h1>Connect, Collaborate, and Grow Your Travel Business</h1>
+                    <p>The ultimate platform for travel agents and supporting businesses to share deals and build partnerships</p>
+                    <div class="cta-buttons">
+                        <button class="primary-btn" onclick="window.location.href='register.html';">Register as an Agent</button>
+<button class="secondary-btn" onclick="window.location.href='deals.html';">Browse Deals</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro">
+            <div class="container">
+                <h2>Welcome to TravelHub</h2>
+                <p>Your one-stop portal for travel agents and supporting businesses to collaborate, share exclusive deals, and grow together. Join our community of professionals and elevate your travel business.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Agent Collaboration</h3>
+                        <p>Connect with other agents to share deals and resources</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tags"></i>
+                        <h3>Exclusive Deals</h3>
+                        <p>Access and share private agent-only deals</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Service Network</h3>
+                        <p>Find trusted supporting businesses for your clients</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trending Deals Section -->
+        <section class="trending-deals">
+            <div class="container">
+                <h2>Trending Deals</h2>
+                <div class="deals-grid">
+                    <!-- Deal cards would be dynamically generated -->
+                    <div class="deal-card">
+                        <div class="deal-image"></div>
+                        <div class="deal-details">
+                            <span class="deal-category">Flight + Hotel</span>
+                            <h3>Bali Paradise Package</h3>
+                            <p>7 days in luxury resort with flights included</p>
+                            <div class="deal-meta">
+                                <span class="deal-price">From $899</span>
+                                <span class="deal-agent">By: AsiaTravel Pro</span>
+                            </div>
+                            <button class="view-deal-btn">View Deal</button>
+                        </div>
+                    </div>
+                    
+                    <div class="deal-card">
+                        <div class="deal-image"></div>
+                        <div class="deal-details">
+                            <span class="deal-category">Cruise</span>
+                            <h3>Mediterranean Cruise Special</h3>
+                            <p>10-day luxury cruise with exclusive agent rates</p>
+                            <div class="deal-meta">
+                                <span class="deal-price">From $1299</span>
+                                <span class="deal-agent">By: CruiseConnect</span>
+                            </div>
+                            <button class="view-deal-btn">View Deal</button>
+                        </div>
+                    </div>
+                    
+                    <div class="deal-card">
+                        <div class="deal-image"></div>
+                        <div class="deal-details">
+                            <span class="deal-category">Tour Package</span>
+                            <h3>Japan Cherry Blossom Tour</h3>
+                            <p>12-day guided tour during sakura season</p>
+                            <div class="deal-meta">
+                                <span class="deal-price">From $2499</span>
+                                <span class="deal-agent">By: AsianWonders</span>
+                            </div>
+                            <button class="view-deal-btn">View Deal</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all">
+                    <a href="deals.html">View All Deals <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Supporting Businesses Section -->
+        <section class="supporting-businesses">
+            <div class="container">
+                <h2>Supporting Businesses</h2>
+                <div class="business-categories">
+                    <button class="category-btn active">All</button>
+                    <button class="category-btn">Transportation</button>
+                    <button class="category-btn">Accommodations</button>
+                    <button class="category-btn">Tour Guides</button>
+                    <button class="category-btn">Activities</button>
+                </div>
+                
+                <div class="businesses-grid">
+                    <!-- Business cards would be dynamically generated -->
+                    <div class="business-card">
+                        <div class="business-logo"></div>
+                        <h3>LuxuryStay Resorts</h3>
+                        <p class="business-category">Accommodations</p>
+                        <p class="business-description">Premium resort chain with special rates for travel agents</p>
+                        <div class="business-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                        <button class="contact-business-btn">Contact Business</button>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo"></div>
+                        <h3>ExpertGuide Tours</h3>
+                        <p class="business-category">Tour Guides</p>
+                        <p class="business-description">Professional guides for major tourist destinations worldwide</p>
+                        <div class="business-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
+                        <button class="contact-business-btn">Contact Business</button>
+                    </div>
+                    
+                    <div class="business-card">
+                        <div class="business-logo"></div>
+                        <h3>PremiumTransfers</h3>
+                        <p class="business-category">Transportation</p>
+                        <p class="business-description">Airport transfers and private transport services</p>
+                        <div class="business-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                        <button class="contact-business-btn">Contact Business</button>
+                    </div>
+                </div>
+                
+                <div class="view-all">
+                    <a href="services.html">View All Businesses <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Forums Preview Section -->
+        <section class="forums-preview">
+            <div class="container">
+                <h2>Discussion Forums</h2>
+                <div class="forum-topics">
+                    <div class="topic-card">
+                        <h3>Industry Updates</h3>
+                        <p>Discuss the latest travel industry news and trends</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-comments"></i> 243 threads</span>
+                            <span><i class="fas fa-users"></i> 1.2k users</span>
+                        </div>
+                        <a href="forums.html#industry" class="join-discussion">Join Discussion</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3>Agent Resources</h3>
+                        <p>Share tips, tools, and resources for growing your business</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-comments"></i> 187 threads</span>
+                            <span><i class="fas fa-users"></i> 956 users</span>
+                        </div>
+                        <a href="forums.html#resources" class="join-discussion">Join Discussion</a>
+                    </div>
+                    
+                    <div class="topic-card">
+                        <h3>Destination Insights</h3>
+                        <p>Get insider tips about popular and emerging destinations</p>
+                        <div class="topic-stats">
+                            <span><i class="fas fa-comments"></i> 312 threads</span>
+                            <span><i class="fas fa-users"></i> 1.5k users</span>
+                        </div>
+                        <a href="forums.html#destinations" class="join-discussion">Join Discussion</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="deals.html">Deals</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <p><i class="fas fa-envelope"></i> support@travelhub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><a href="helpdesk.html">Help Desk</a></p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TravelHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const role = localStorage.getItem("role");
+        if (!role) {
+            document.querySelector(".agent-only").style.display = "none";
+        } else if (role === "user") {
+            document.querySelector(".agent-only").style.display = "none";
+        }
+    });
+</script>

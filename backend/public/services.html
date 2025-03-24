@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - TravelHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="travel.png" type="image/png">
+    <style>
+    
+        
+        /* Hero Section */
+        .hero {
+            background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1)), 
+        url('./images/blog-3.jpg') no-repeat center center/cover;
+            height: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: #003366;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .service-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-img {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            color: #003366;
+            margin-top: 0;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                
+                Travel<span>Hub</span> 
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="forums.html">Discussion Forums</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search deals, agents, services...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="auth-buttons">
+                <button class="login-btn">Login</button>
+                <button class="signup-btn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Travel Services</h1>
+            <p>Personalized travel experiences crafted just for you. Discover how our expert travel agents can make your dream vacation a reality.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>What We Offer</h2>
+                <p>From planning to execution, we take care of every detail so you can focus on creating memories.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Vacation Packages</h3>
+                        <p>All-inclusive vacation packages tailored to your preferences and budget. We partner with top resorts and hotels worldwide to bring you the best deals.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Cruise Bookings</h3>
+                        <p>Experience luxury on the high seas with our premium cruise packages. From Caribbean adventures to Mediterranean escapes, we've got you covered.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Flight Reservations</h3>
+                        <p>Access to exclusive airfare deals and premium seating options. We help you navigate complex flight schedules and find the best routes.</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Honeymoon Planning</h3>
+                        <p>Start your new life together with a perfect honeymoon. We create romantic getaways with special touches to make your trip unforgettable.</p>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Group Travel</h3>
+                        <p>Specialized in coordinating group trips for families, friends, corporate retreats, and special events. We handle all the logistics.</p>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('/api/placeholder/600/400');"></div>
+                    <div class="service-content">
+                        <h3>Adventure Tours</h3>
+                        <p>For the thrill-seekers, we offer adventure packages including hiking, diving, safari, and extreme sports in exotic destinations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" style="padding: 80px 0; background-color: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Booking Process</h2>
+                <p>Simple, transparent, and designed with you in mind</p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 40px;">
+                <div style="flex: 1; min-width: 250px; text-align: center; padding: 20px;">
+                    <div style="background-color: #003366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto; font-size: 24px; font-weight: bold;">1</div>
+                    <h3>Consultation</h3>
+                    <p>We begin with a free consultation to understand your travel preferences, budget, and dream destinations.</p>
+                </div>
+
+                <div style="flex: 1; min-width: 250px; text-align: center; padding: 20px;">
+                    <div style="background-color: #003366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto; font-size: 24px; font-weight: bold;">2</div>
+                    <h3>Customized Planning</h3>
+                    <p>Our experts create a tailored itinerary based on your requirements, with multiple options to choose from.</p>
+                </div>
+
+                <div style="flex: 1; min-width: 250px; text-align: center; padding: 20px;">
+                    <div style="background-color: #003366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto; font-size: 24px; font-weight: bold;">3</div>
+                    <h3>Booking & Confirmation</h3>
+                    <p>Once you approve, we handle all reservations and provide you with detailed confirmation documents.</p>
+                </div>
+
+                <div style="flex: 1; min-width: 250px; text-align: center; padding: 20px;">
+                    <div style="background-color: #003366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin: 0 auto; font-size: 24px; font-weight: bold;">4</div>
+                    <h3>Travel Support</h3>
+                    <p>Enjoy 24/7 support during your journey for any assistance you might need while traveling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose TravelHub</h2>
+                <p>What sets us apart from online booking platforms</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>Expertise & Experience</h3>
+                    <p>Our agents have extensive industry knowledge and firsthand experience with destinations worldwide.</p>
+                </div>
+
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>Time & Stress Savings</h3>
+                    <p>We handle the research, comparisons, and logistics so you don't have to spend hours planning.</p>
+                </div>
+
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>Exclusive Access</h3>
+                    <p>Benefit from our industry connections for upgrades, amenities, and experiences not available online.</p>
+                </div>
+
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>Personalized Service</h3>
+                    <p>Your vacation is unique, and our recommendations are customized to your specific preferences.</p>
+                </div>
+
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>Crisis Management</h3>
+                    <p>If something goes wrong during your trip, we're just a call away to help resolve issues quickly.</p>
+                </div>
+
+                <div style="padding: 20px; border-left: 4px solid #003366;">
+                    <h3>No Extra Cost</h3>
+                    <p>In most cases, our services come at no additional cost as we're compensated by our travel partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" style="padding: 80px 0; background-color: #f9f9f9;">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+                <p>Real experiences from travelers just like you</p>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 40px;">
+                <div style="flex: 1; min-width: 300px; margin: 15px; padding: 30px; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-style: italic;">"Working with  TravelHub was the best decision for our anniversary trip to Italy. Every detail was perfectly arranged, and their local recommendations made our experience authentic and unforgettable."</p>
+                    <p style="font-weight: bold; margin-bottom: 0;">Michael & Sarah Johnson</p>
+                    <p style="margin-top: 5px; color: #666;">Rome & Amalfi Coast Tour</p>
+                </div>
+
+                <div style="flex: 1; min-width: 300px; margin: 15px; padding: 30px; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-style: italic;">"Our family vacation to Costa Rica exceeded all expectations. The activities were perfect for all ages, and having 24/7 support during our trip gave us peace of mind. Worth every penny!"</p>
+                    <p style="font-weight: bold; margin-bottom: 0;">The Rodriguez Family</p>
+                    <p style="margin-top: 5px; color: #666;">Costa Rica Adventure Package</p>
+                </div>
+
+                <div style="flex: 1; min-width: 300px; margin: 15px; padding: 30px; background-color: white; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                    <p style="font-style: italic;">"I was skeptical about using a travel agent, but after my Bali trip organized by TravelHub, I'm a convert. They found accommodations and experiences I never would have discovered on my own."</p>
+                    <p style="font-weight: bold; margin-bottom: 0;">Jennifer Williams</p>
+                    <p style="margin-top: 5px; color: #666;">Bali Wellness Retreat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Start Planning Your Dream Vacation?</h2>
+            <p>Contact our travel experts today for a free consultation and let us craft the perfect travel experience tailored just for you.</p>
+            <a href="#" class="btn">Book a Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TravelHub</h3>
+                    <p>Your trusted partner in creating unforgettable travel experiences since 2010.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#">Vacation Packages</a></li>
+                        <li><a href="#">Cruise Bookings</a></li>
+                        <li><a href="#">Flight Reservations</a></li>
+                        <li><a href="#">Honeymoon Planning</a></li>
+                        <li><a href="#">Group Travel</a></li>
+                        <li><a href="#">Adventure Tours</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul>
+                        <li><a href="#">Europe</a></li>
+                        <li><a href="#">Caribbean</a></li>
+                        <li><a href="#">Southeast Asia</a></li>
+                        <li><a href="#">South Pacific</a></li>
+                        <li><a href="#">Africa</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <p><i class="fas fa-envelope"></i> support@travelhub.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                    <p><a href="helpdesk.html">Help Desk</a></p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 TravelHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
