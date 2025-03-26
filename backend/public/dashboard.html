@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Portal Dashboard</title>
+    <link rel="icon" href="travel.png" type="image/png">
+
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* CSS from provided styles.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin: 30px 0;
+        }
+
+        .sidebar {
+            background-color: #f9f9f9;
+            padding: 30px 20px;
+            border-right: 1px solid #eee;
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar-nav li a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-nav li a:hover, .sidebar-nav li a.active {
+            background-color: #e6f2ff;
+            color: #0077cc;
+        }
+
+        .sidebar-nav li a i {
+            margin-right: 10px;
+            color: #0077cc;
+        }
+
+        .dashboard-content {
+            padding: 30px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-card i {
+            font-size: 2rem;
+            color: #0077cc;
+            margin-bottom: 10px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .recent-activity {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-details {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .activity-time {
+            color: #777;
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Individual Travel Agent Dashboard -->
+        <div class="dashboard">
+            <aside class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> My Deals</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> Messages</a></li>
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Profile</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </aside>
+            <main class="dashboard-content">
+                <div class="dashboard-header">
+                    <h2>Individual Agent Dashboard</h2>
+                    <button class="btn">Create New Deal</button>
+                </div>
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>24</h3>
+                        <p>Active Deals</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-comment-dollar"></i>
+                        <h3>$45,650</h3>
+                        <p>Total Revenue</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>42</h3>
+                        <p>Client Interactions</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.7</h3>
+                        <p>Average Rating</p>
+                    </div>
+                </section>
+                <section class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <div class="activity-details">
+                            <strong>Mediterranean Cruise Package</strong>
+                            <p>Deal updated with new pricing</p>
+                        </div>
+                        <span class="activity-time">2 hours ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-comment"></i>
+                        <div class="activity-details">
+                            <strong>New Message</strong>
+                            <p>Inquiry about European tour</p>
+                        </div>
+                        <span class="activity-time">4 hours ago</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Travel Agency Dashboard -->
+        <div class="dashboard">
+            <aside class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-globe"></i> Agency Deals</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Team Management</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Agency Settings</a></li>
+                </ul>
+            </aside>
+            <main class="dashboard-content">
+                <div class="dashboard-header">
+                    <h2>Wanderlust Travel Agency</h2>
+                    <button class="btn">Publish Group Deal</button>
+                </div>
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-suitcase-rolling"></i>
+                        <h3>78</h3>
+                        <p>Total Packages</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h3>$256,000</h3>
+                        <p>Monthly Revenue</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>12</h3>
+                        <p>Agency Members</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>95%</h3>
+                        <p>Client Satisfaction</p>
+                    </div>
+                </section>
+                <section class="recent-activity">
+                    <h3>Team Performance</h3>
+                    <div class="activity-item">
+                        <i class="fas fa-trophy"></i>
+                        <div class="activity-details">
+                            <strong>Sarah Thompson</strong>
+                            <p>Top performer this month</p>
+                        </div>
+                        <span class="activity-time">Top Sales: $45,000</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-sync"></i>
+                        <div class="activity-details">
+                            <strong>Group Package Update</strong>
+                            <p>Summer Europe Tour revised</p>
+                        </div>
+                        <span class="activity-time">Today</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Supporting Business Dashboard -->
+        <div class="dashboard">
+            <aside class="sidebar">
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="#"><i class="fas fa-hotel"></i> Service Offerings</a></li>
+                    <li><a href="#"><i class="fas fa-envelope-open-text"></i> Service Requests</a></li>
+                    <li><a href="#"><i class="fas fa-comments"></i> Feedback</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> Business Settings</a></li>
+                </ul>
+            </aside>
+            <main class="dashboard-content">
+                <div class="dashboard-header">
+                    <h2>Premium Accommodations Ltd</h2>
+                    <button class="btn">Add New Service</button>
+                </div>
+                <section class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-home"></i>
+                        <h3>42</h3>
+                        <p>Total Services</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>28</h3>
+                        <p>Active Partnerships</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3>4.8</h3>
+                        <p>Overall Rating</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>$180K</h3>
+                        <p>Monthly Revenue</p>
+                    </div>
+                </section>
+                <section class="recent-activity">
+                    <h3>Recent Service Requests</h3>
+                    <div class="activity-item">
+                        <i class="fas fa-umbrella-beach"></i>
+                        <div class="activity-details">
+                            <strong>Beach Resort Package</strong>
+                            <p>New request from Horizon Travels</p>
+                        </div>
+                        <span class="activity-time">2 hours ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-check"></i>
+                        <div class="activity-details">
+                            <strong>Service Partnership</strong>
+                            <p>Confirmed with Global Voyages</p>
+                        </div>
+                        <span class="activity-time">Today</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

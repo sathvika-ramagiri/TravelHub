@@ -1,4 +1,80 @@
-// Wait for DOM content to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    const userRole = localStorage.getItem("userRole");
+
+    // Restrict Navigation if Not Logged In
+    document.addEventListener("click", function (e) {
+        const clickedElement = e.target.closest("a"); // Get the clicked link
+        if (clickedElement && !window.location.pathname.includes("login.html")) {
+            const restrictedPages = ["deals.html", "services.html", "forums.html", "contact.html"];
+            const targetHref = clickedElement.getAttribute("href");
+
+            if (restrictedPages.some(page => targetHref.includes(page)) && !userRole) {
+                e.preventDefault(); // Block navigation
+                alert("Please login or sign up to access this page.");
+                window.location.href = "login.html"; // Redirect to login
+            }
+        }
+    });
+
+    // Handle Login Button Click (Redirects on successful login)
+    const loginBtn = document.querySelector(".login-btn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", async function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Please enter both email and password.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:5000/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    localStorage.setItem("userRole", data.role); // Store user role
+                    window.location.href = "home.html"; // Redirect to home page
+                } else {
+                    alert("Invalid credentials. Please try again.");
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("An error occurred. Please try again later.");
+            }
+        });
+    }
+
+    // Handle Logout
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("userRole");
+            window.location.href = "index.html"; // Redirect to landing page
+        });
+    }
+});
+
+    
+    
+    
+    // Handle Logout Functionality
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("userRole"); // Clear stored role
+            window.location.href = "login.html"; // Redirect to login page
+        });
+    }
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Category filter for businesses section
     const categoryButtons = document.querySelectorAll('.category-btn');

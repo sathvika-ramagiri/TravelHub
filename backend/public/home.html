@@ -3,27 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelHub</title>
-    <link rel="icon" href="travel.png" type="image/png">
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="istyles.css">
 </head>
 <body>
     <!-- Header Section -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                
                 Travel<span>Hub</span> 
             </div>
             
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
                     <li><a href="deals.html">Deals</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="forums.html">Discussion Forums</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
+                    <li class="user-menu" id="userMenu" style="display: none;">
+                        <div class="user-profile" id="userProfileToggle">
+                            <img src="user-icon.png" alt="User" class="user-icon">
+                            <span id="userNameText">John Doe</span>
+                        </div>
+                        <div class="user-dropdown" id="userDropdown">
+                            <div class="user-info">
+                                <img src="user-icon.png" alt="User" class="user-icon">
+                                <div class="user-details">
+                                    <div class="user-name">John Doe</div>
+                                    <div class="user-role">Travel Agent</div>
+                                </div>
+                            </div>
+                            <div class="user-actions">
+                                <button id="logoutBtn" class="logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             
@@ -31,27 +51,11 @@
                 <input type="text" placeholder="Search deals, agents, services...">
                 <button><i class="fas fa-search"></i></button>
             </div>
-            
-            <div class="auth-buttons">
-                <button class="login-btn">Login</button>
-                <button class="signup-btn">Sign Up</button>
-                
-                <!-- User Icon (Hidden Initially) -->
-                <div class="user-menu" id="userMenu" style="display: none;">
-                    <img src="user-icon.png" alt="User" class="user-icon">
-                    <div class="dropdown">
-                        <p id="userRoleText"></p>
-                        <button id="logoutBtn">Logout</button>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </header>
 
-    <!-- Main Section -->
+    <!-- Rest of the page content remains the same as in previous version -->
     <main>
-        <!-- Banner Section -->
         <section  class="banner">
             <div class="container">
                 <div class="banner-content">
@@ -253,55 +257,41 @@
         </section>
     </main>
 
-    <!-- Footer Section -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="deals.html">Deals</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="cookies.html">Cookie Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <p><i class="fas fa-envelope"></i> support@travelhub.com</p>
-                    <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
-                    <p><a href="helpdesk.html">Help Desk</a></p>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2025 TravelHub. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-  
-    
-    <script src="script.js"></script>
-</body>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userMenu = document.getElementById('userMenu');
+            const userProfileToggle = document.getElementById('userProfileToggle');
+            const userDropdown = document.getElementById('userDropdown');
+            const logoutBtn = document.getElementById('logoutBtn');
+
+            // Show user menu
+            userMenu.style.display = 'block';
+
+            // Toggle dropdown
+            userProfileToggle.addEventListener('click', function(e) {
+                userDropdown.classList.toggle('show');
+                e.stopPropagation();
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                userDropdown.classList.remove('show');
+            });
+
+            // Prevent dropdown from closing when clicking inside
+            userDropdown.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Logout functionality
+            logoutBtn.addEventListener('click', function() {
+                // Implement actual logout logic here
+                userMenu.style.display = 'none';
+                alert('Logged out successfully');
+                window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>

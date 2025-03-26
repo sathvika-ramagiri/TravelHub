@@ -1,0 +1,94 @@
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0077cc;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 250px;
+    padding: 15px;
+    z-index: 100;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.user-details {
+    margin-left: 15px;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.user-role {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #d9534f;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+}
+
+.logout-btn:hover {
+    background-color: #f8d7da;
+}
+
+.logout-btn i {
+    margin-right: 10px;
+}
+
+/* Additional responsive adjustments */
+@media (max-width: 768px) {
+    .user-dropdown {
+        width: 100%;
+        right: auto;
+        left: 0;
+    }
+}
